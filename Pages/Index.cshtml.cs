@@ -8,7 +8,7 @@ namespace ContosoPizza.Pages
 {
     public class IndexModel : PageModel
     {
-        public TimeSpan TimeInBusiness {get; set; }
+        public TimeSpan timeInBusiness { get; set; }
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
