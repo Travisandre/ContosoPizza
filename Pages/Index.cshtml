@@ -1,0 +1,11 @@
+﻿@page
+@using ContosoPizza.Pages
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Contoso Pizza</h1>
+    <p class="lead">The best pizza in town for @Convert.ToInt32(Model.TimeInBusiness.TotalDays) days!</p>
+</div>
