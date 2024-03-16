@@ -11,11 +11,13 @@ namespace ContosoPizza.Pages
 {
     public class PizzaListModel : PageModel
     {
-        // static TelemetryConfiguration tctconfiguration = new TelemetryConfiguration();
-        // TelemetryClient tc = new TelemetryClient(tctconfiguration);
+        private readonly PizzaService _service;
+        static TelemetryConfiguration tctconfiguration = new TelemetryConfiguration("9077be67-ea86-43ac-a958-378c288275c7");
+        TelemetryClient tc = new TelemetryClient(tctconfiguration);
+
         [BindProperty]
         public Pizza NewPizza { get; set; } = default!;
-        private readonly PizzaService _service;
+        
         public IList<Pizza> PizzaList { get;set; } = default!;
 
         public PizzaListModel(PizzaService service)
@@ -35,7 +37,7 @@ namespace ContosoPizza.Pages
                 return Page();
             }
             _service.AddPizza(NewPizza);
-            // tc.TrackTrace("New Pizza " + NewPizza.Name +" added");
+            tc.TrackTrace("New Pizza " + NewPizza.Name +" added");
             
             return RedirectToAction("Get");
         }
@@ -43,7 +45,7 @@ namespace ContosoPizza.Pages
         public IActionResult OnPostDelete(int id)
         {
             _service.DeletePizza(id);
-            // tc.TrackTrace("Pizza deleted: PizzaId :" + id);
+            tc.TrackTrace("Pizza deleted: PizzaId :" + id);
             return RedirectToAction("Get");
         }
     }
