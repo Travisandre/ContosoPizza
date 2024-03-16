@@ -36,9 +36,11 @@ namespace ContosoPizza.Pages
                 return Task.CompletedTask;
             }
 
-            //Fill In With My Endpoints
-            client = new ServiceBusClient("Endpoint=sb:ShulerII.servicebus.windows.net/;SharedAccessKeyName=consumer;SharedAccessKey=oC4IwblvkLxn82lOeA7ONR2L2QKfBND9t+ASbLVGBwM=");
+            // Create the clients that we'll use for sending and processing messages.
+            // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
+            client = new ServiceBusClient("Endpoint=sb://shulerii.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=oC4IwblvkLxn82lOeA7ONR2L2QKfBND9t+ASbLVGBwM=");
 
+            // Create a processor that we can use to process the messages
             processor = client.CreateProcessor("shulerii_proj2", "S1", new ServiceBusProcessorOptions());
 
             try
