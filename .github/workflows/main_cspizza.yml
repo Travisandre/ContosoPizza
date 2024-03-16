@@ -61,5 +61,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'CsPizza'
+          slot-name: 'Production' 
           package: .
           
